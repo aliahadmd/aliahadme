@@ -7,4 +7,5 @@ export default [
   route("projects", "routes/projects.tsx"),
   route("projects/:slug", "routes/projects.$slug.tsx"),
   route("awards", "routes/awards.tsx"),
+  route("podcasts", "routes/podcasts.tsx"),
 ] satisfies RouteConfig;

@@ -17,11 +17,12 @@ export function Layout({ children }: { children: React.ReactNode }) {
     { to: "/throughts", label: "throughts" },
     { to: "/projects", label: "projects" },
     { to: "/awards", label: "awards" },
+    { to: "/podcasts", label: "podcasts" },
   ];
 
   const getLinkClass = (path: string, exact?: boolean) => {
     const active = exact 
-      ? isActive("/") && !isActive("/throughts") && !isActive("/projects") && !isActive("/awards")
+      ? isActive("/") && !isActive("/throughts") && !isActive("/projects") && !isActive("/awards") && !isActive("/podcasts")
       : isActive(path);
     return active ? "nav-link-active" : "nav-link";
   };

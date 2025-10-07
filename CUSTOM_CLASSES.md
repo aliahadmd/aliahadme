@@ -147,6 +147,7 @@ All prose sub-classes (`.prose h1`, `.prose p`, `.prose table`, etc.) are automa
 - `app/routes/awards.tsx` - Prose wrapper
 - `app/routes/throughts.tsx` - Select, item cards
 - `app/routes/projects.tsx` - Select, item cards
+- `app/routes/podcasts.tsx` - Item cards with external links
 - `app/routes/throughts.$slug.tsx` - Back link, prose wrapper
 - `app/routes/projects.$slug.tsx` - Back link, prose wrapper
 
