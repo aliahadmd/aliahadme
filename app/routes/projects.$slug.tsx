@@ -39,16 +39,16 @@ export default function ProjectDetail({ loaderData }: Route.ComponentProps) {
     <Layout>
       <div className="space-y-6">
         <div className="mb-6 md:mb-8">
-          <Link to="/projects" className="text-sm hover:text-green-600">
+          <Link to="/projects" className="text-sm link">
             ← back
           </Link>
         </div>
 
         <div className="space-y-4">
-          <h1 className="text-2xl md:text-3xl font-bold">{metadata.title}</h1>
-          <div className="text-gray-600 text-sm md:text-base">
+          <h1 className="text-2xl md:text-3xl font-bold text-heading">{metadata.title}</h1>
+          <div className="text-secondary text-sm md:text-base">
             <p className="mb-1">Category: {metadata.category} | Date: {metadata.date}</p>
-            <p>Github link: <a href={metadata.github} className="text-blue-600 hover:underline break-all">{metadata.github}</a></p>
+            <p>Github link: <a href={metadata.github} className="link break-all">{metadata.github}</a></p>
           </div>
           <div
             className="prose prose-sm max-w-none mt-6"

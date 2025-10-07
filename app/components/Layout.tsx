@@ -1,6 +1,7 @@
 import { Link, useLocation } from "react-router";
 import { useState } from "react";
 import { MermaidInit } from "./MermaidInit";
+import { ThemeToggle } from "./ThemeToggle";
 
 export function Layout({ children }: { children: React.ReactNode }) {
   const location = useLocation();
@@ -22,7 +23,7 @@ export function Layout({ children }: { children: React.ReactNode }) {
     const active = exact 
       ? isActive("/") && !isActive("/throughts") && !isActive("/projects") && !isActive("/awards")
       : isActive(path);
-    return active ? "text-green-600 italic" : "text-black hover:text-green-600 italic";
+    return active ? "nav-link-active" : "nav-link";
   };
 
   return (
@@ -30,34 +31,37 @@ export function Layout({ children }: { children: React.ReactNode }) {
       <MermaidInit />
       <div className="min-h-screen flex flex-col md:flex-row">
       {/* Mobile Header */}
-      <div className="md:hidden flex items-center justify-between p-4 border-b border-gray-300">
-        <h1 className="text-lg font-semibold">Portfolio</h1>
-        <button
-          onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-          className="p-2 hover:bg-gray-100 rounded"
-          aria-label="Toggle menu"
-        >
-          <svg
-            className="w-6 h-6"
-            fill="none"
-            strokeLinecap="round"
-            strokeLinejoin="round"
-            strokeWidth="2"
-            viewBox="0 0 24 24"
-            stroke="currentColor"
+      <div className="md:hidden flex items-center justify-between p-4 border-b border-primary bg-secondary">
+        <h1 className="text-lg font-semibold text-heading">Portfolio</h1>
+        <div className="flex items-center gap-2">
+          <ThemeToggle />
+          <button
+            onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
+            className="mobile-menu-btn"
+            aria-label="Toggle menu"
           >
-            {mobileMenuOpen ? (
-              <path d="M6 18L18 6M6 6l12 12" />
-            ) : (
-              <path d="M4 6h16M4 12h16M4 18h16" />
-            )}
-          </svg>
-        </button>
+            <svg
+              className="w-6 h-6"
+              fill="none"
+              strokeLinecap="round"
+              strokeLinejoin="round"
+              strokeWidth="2"
+              viewBox="0 0 24 24"
+              stroke="currentColor"
+            >
+              {mobileMenuOpen ? (
+                <path d="M6 18L18 6M6 6l12 12" />
+              ) : (
+                <path d="M4 6h16M4 12h16M4 18h16" />
+              )}
+            </svg>
+          </button>
+        </div>
       </div>
 
       {/* Mobile Menu */}
       {mobileMenuOpen && (
-        <nav className="md:hidden border-b border-gray-300 p-4" style={{ backgroundColor: '#f0eee6' }}>
+        <nav className="md:hidden border-b border-primary p-4 bg-secondary">
           <ul className="space-y-3">
             {navLinks.map((link) => (
               <li key={link.to}>
@@ -75,7 +79,10 @@ export function Layout({ children }: { children: React.ReactNode }) {
       )}
 
       {/* Desktop Sidebar */}
-      <nav className="hidden md:block w-64 border-r border-gray-300 p-8 flex-shrink-0">
+      <nav className="hidden md:block w-64 border-r border-primary p-8 flex-shrink-0 bg-secondary">
+        <div className="mb-6">
+          <ThemeToggle />
+        </div>
         <ul className="space-y-2">
           {navLinks.map((link) => (
             <li key={link.to}>
@@ -95,7 +102,7 @@ export function Layout({ children }: { children: React.ReactNode }) {
         {children}
         
         {/* Footer */}
-        <footer className="mt-12 pt-6 border-t border-gray-200 text-center text-sm text-gray-500">
+        <footer className="mt-12 pt-6 border-t border-primary text-center text-sm text-secondary">
           © {new Date().getFullYear()} MD Ahad Ali. All rights reserved.
         </footer>
       </main>

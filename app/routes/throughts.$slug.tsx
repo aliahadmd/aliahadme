@@ -39,14 +39,14 @@ export default function ThoughtDetail({ loaderData }: Route.ComponentProps) {
     <Layout>
       <div className="space-y-6">
         <div className="mb-6 md:mb-8">
-          <Link to="/throughts" className="text-sm hover:text-green-600">
+          <Link to="/throughts" className="text-sm link">
             ← back
           </Link>
         </div>
 
         <div className="space-y-4">
-          <h1 className="text-2xl md:text-3xl font-bold">{metadata.title}</h1>
-          <p className="text-gray-600 text-sm md:text-base">
+          <h1 className="text-2xl md:text-3xl font-bold text-heading">{metadata.title}</h1>
+          <p className="text-secondary text-sm md:text-base">
             date: {metadata.date} | Category: {metadata.category}
           </p>
           <div

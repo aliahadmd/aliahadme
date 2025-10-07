@@ -60,11 +60,11 @@ export default function Throughts({ loaderData }: Route.ComponentProps) {
   return (
     <Layout>
       <div className="space-y-6">
-        <h1 className="text-xl md:text-2xl font-bold mb-6 md:mb-8">throughts</h1>
+        <h1 className="text-xl md:text-2xl font-bold mb-6 md:mb-8 text-heading">throughts</h1>
         
         <div className="mb-6">
           <select 
-            className="border border-gray-300 rounded px-3 py-2 text-sm w-full md:w-auto"
+            className="select-themed"
             value={selectedCategory}
             onChange={(e) => setSelectedCategory(e.target.value)}
           >
@@ -78,14 +78,14 @@ export default function Throughts({ loaderData }: Route.ComponentProps) {
 
         <div className="space-y-4">
           {filteredThoughts.map((thought) => (
-            <div key={thought.slug} className="border-b border-gray-200 pb-4">
+            <div key={thought.slug} className="item-card">
               <Link
                 to={`/throughts/${thought.slug}`}
-                className="text-base md:text-lg hover:text-green-600 block mb-2"
+                className="item-title"
               >
                 {thought.title}
               </Link>
-              <span className="text-gray-500 text-xs md:text-sm block md:inline md:ml-4">
+              <span className="item-meta">
                 {thought.category} . . . . . . . . . {thought.date}
               </span>
             </div>

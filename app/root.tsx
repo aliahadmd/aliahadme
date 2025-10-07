@@ -41,8 +41,14 @@ export function Layout({ children }: { children: React.ReactNode }) {
   );
 }
 
+import { ThemeProvider } from "./utils/theme";
+
 export default function App() {
-  return <Outlet />;
+  return (
+    <ThemeProvider>
+      <Outlet />
+    </ThemeProvider>
+  );
 }
 
 export function ErrorBoundary({ error }: Route.ErrorBoundaryProps) {
@@ -62,11 +68,11 @@ export function ErrorBoundary({ error }: Route.ErrorBoundaryProps) {
   }
 
   return (
-    <main className="pt-16 p-4 container mx-auto">
-      <h1>{message}</h1>
-      <p>{details}</p>
+    <main className="error-container">
+      <h1 className="text-heading">{message}</h1>
+      <p className="text-primary">{details}</p>
       {stack && (
-        <pre className="w-full p-4 overflow-x-auto">
+        <pre className="error-stack">
           <code>{stack}</code>
         </pre>
       )}
