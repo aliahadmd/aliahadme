@@ -1,4 +1,32 @@
-.react-router
-build
+# Dependencies
 node_modules
+
+# Build output
+build
+.react-router
+
+# Git
+.git
+.gitignore
+
+# Documentation (not needed in runtime)
 README.md
+PROJECT_SUMMARY.md
+CHECKLIST.md
+DEPLOYMENT.md
+
+# Development files
+.env.local
+.env.development
+*.log
+npm-debug.log*
+
+# IDE
+.vscode
+.idea
+*.swp
+*.swo
+
+# OS
+.DS_Store
+Thumbs.db
